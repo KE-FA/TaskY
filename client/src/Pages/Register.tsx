@@ -62,6 +62,7 @@ function Register() {
     },
      onSuccess: () => {
       toast("Account Created successfully", {
+        position:"top-center",
         style: {
           backgroundColor: "greenyellow",
           color: "black",

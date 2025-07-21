@@ -8,11 +8,12 @@ import Register from "./Pages/Register";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Protected from "./Components/Protected";
+import CompletedTask from "./Pages/CompletedTask";
 import { Toaster } from "react-hot-toast";
 import "./index.css";
 
 import NewTask from "./Pages/NewTask";
-import Tasks from "./Pages/Task";
+import Tasks from "./Components/TaskDetails";
 
 const client = new QueryClient();
 
@@ -62,6 +63,15 @@ function Layout() {
           element={
             <Protected>
               <NewTask />
+            </Protected>
+          }
+        />
+
+         <Route
+          path="/completed"
+          element={
+            <Protected>
+              < CompletedTask/>
             </Protected>
           }
         />

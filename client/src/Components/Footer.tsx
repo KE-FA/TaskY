@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Container,
@@ -10,20 +9,23 @@ import {
 } from "@mui/material";
 import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <Box
       component="footer"
       sx={{
         bgcolor: "#2A3542",
         color: "#fff",
-        py: 4,
+        py: 2,
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        width: "100%",
       }}
     >
       <Container maxWidth="lg">
         <Grid container spacing={4}>
-          {/* Brand & description */}
-          <Grid size={{xs:12, md:4}}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography variant="h6" fontWeight="bold" gutterBottom>
               TASKY
             </Typography>
@@ -33,8 +35,7 @@ const Footer: React.FC = () => {
             </Typography>
           </Grid>
 
-          {/* Useful links */}
-          <Grid size={{xs:12, sm:6, md:4}}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
               Useful Links
             </Typography>
@@ -45,12 +46,11 @@ const Footer: React.FC = () => {
               <Link href="/about" color="inherit" underline="hover">
                 About Us
               </Link>
-           
             </Stack>
           </Grid>
 
           {/* Socials */}
-          <Grid size={{xs:12, sm:6, md:4}}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
               Follow Us
             </Typography>
@@ -94,9 +94,9 @@ const Footer: React.FC = () => {
         <Typography
           variant="body2"
           align="center"
-          sx={{ mt: 3, color: "#aaa" }}
+          sx={{ mt: 2.7, color: "#aaa" }}
         >
-          © {new Date().getFullYear()} Tasky. All rights reserved.
+          &copy; {new Date().getFullYear()} Tasky. All rights reserved.
         </Typography>
       </Container>
     </Box>

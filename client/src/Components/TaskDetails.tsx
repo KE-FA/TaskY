@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../api/axiosinstance";
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import Task from "../Components/Tasks";
+import Task from "../Pages/Tasks";
 import useUser from "../store/userStore";
-import Loader from "../Components/Loader";
+import Loader from "./Loader";
 
 interface Task {
-  taskId: string;
+  taskid: string;
   title: string;
   description: string;
   isDeleted: boolean;
+  isCompleted:boolean;
   createdAt: string;
   users: {
     id: string;
@@ -43,22 +44,23 @@ function AllTasks() {
     return <Loader message="Loading Please wait ..." />;
   }
 
-  const filteredTasks = data?.filter(
-    (task: Task) => task.users.id === user?.id && !task.isDeleted
+
+
+  
+ const incompleteTasks = data?.filter(
+    (task:Task) => task.users.id === user?.id && !task.isDeleted && !task.isCompleted
   );
 
   return (
-    <Box component="section" mt={2} mb={25}>
+    <Box component="section" mt={2} mb={5}>
       <Grid container justifyContent="center" spacing={3} mt={2.5} px={4}>
-        {filteredTasks && filteredTasks.length > 0 ? (
-          filteredTasks.map((task: Task) => (
+        {incompleteTasks && incompleteTasks.length > 0 ? (
+          incompleteTasks.map((task: Task) => (
             <Task
-              key={task.taskId}
-              taskId={task.taskId}
+              key={task.taskid}
+              taskid={task.taskid}
               title={task.title}
               description={task.description}
-           
-            
               isDeleted={task.isDeleted}
               authorName={`${task.users.firstName} ${task.users.lastName}`}
               authorId={task.users.id}

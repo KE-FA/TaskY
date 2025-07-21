@@ -8,7 +8,7 @@ export const createTask = async (req: Request, res: Response) => {
     const { title, description } = req.body;
     const { id } = req.user;
     await client.task.create({
-      data: { title, description , userid: id },
+      data: { title, description, userid: id },
     });
     res.status(201).json({ message: "New Task Created successfully" });
   } catch (e) {
@@ -41,7 +41,7 @@ export const deleteTask = async (req: Request, res: Response) => {
       where: { taskid },
       data: { isDeleted: true },
     });
-    res.status(200).json({ message: "Task Deleted Successfuly" });
+    res.status(200).json({ message: "Task Deleted Successfully" });
   } catch (e) {
     res.status(500).json({ message: "Something went wrong" });
   }
@@ -54,7 +54,12 @@ export const getTask = async (req: Request, res: Response) => {
     const { id } = req.user;
     const Task = await client.task.findFirst({
       where: {
-        AND: [{ taskid: taskid }, { userid: id }, { isDeleted: false }],
+        AND: [
+          { taskid: taskid },
+          { userid: id },
+          { isDeleted: false },
+          { isCompleted: false },
+        ],
       },
     });
     if (!Task) {
@@ -76,7 +81,7 @@ export const updateTask = async (req: Request, res: Response) => {
       where: { taskid: taskid },
       data: {
         title: title && title,
-        description: description && description
+        description: description && description,
       },
     });
     res.status(200).json({ message: "Task updated successfully" });
@@ -109,10 +114,10 @@ export const completeTask = async (req: Request, res: Response) => {
   try {
     const updatedTask = await client.task.update({
       where: { taskid },
-      data: { isCompleted: true },
+      data: { isCompleted: true, isDeleted: false },
     });
 
-    res.status(200).json({ message: "Task marked as completed", task: updatedTask });
+    res.status(200).json(updatedTask);
   } catch (e) {
     console.error(e);
     res.status(500).json({ message: "Something went wrong" });
@@ -129,9 +134,13 @@ export const incompleteTask = async (req: Request, res: Response) => {
       data: { isCompleted: false },
     });
 
-    res.status(200).json({ message: "Task marked as incomplete", task: updatedTask });
+    res
+      .status(200)
+      .json({ message: "Task marked as incomplete", task: updatedTask });
   } catch (e) {
     console.error(e);
     res.status(500).json({ message: "Something went wrong" });
   }
 };
+
+
