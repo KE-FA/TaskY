@@ -34,13 +34,7 @@ const Header: React.FC = () => {
 
         {/* Links */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Button
-            href="/new-task"
-            startIcon={<AddTaskIcon />}
-            sx={{ color: "#fff" }}
-          >
-            New Task
-          </Button>
+         
           <Button
             href="/tasks"
             startIcon={<AssignmentIcon />}
@@ -48,6 +42,14 @@ const Header: React.FC = () => {
           >
             Tasks
           </Button>
+           <Button
+            href="/task/new"
+            startIcon={<AddTaskIcon />}
+            sx={{ color: "#fff" }}
+          >
+            New Task
+          </Button>
+          
           <Button
             href="/completed"
             startIcon={<DoneAllIcon />}

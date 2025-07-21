@@ -8,7 +8,7 @@ function validateTask(req:Request, res:Response, next:NextFunction){
     return;
  }
   if(!description){
-    res.status(400).json({message:"Content is required"})
+    res.status(400).json({message:"Description is required"})
     return;
   }
 

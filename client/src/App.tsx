@@ -11,6 +11,8 @@ import Protected from "./Components/Protected";
 import { Toaster } from "react-hot-toast";
 import "./index.css";
 
+import NewTask from "./Pages/NewTask";
+import Tasks from "./Pages/Task";
 
 const client = new QueryClient();
 
@@ -46,13 +48,24 @@ function Layout() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
-          path="/dashboard"
+          path="/tasks"
           element={
             <Protected>
-              <h1>Dashboard page here</h1>
+              <Tasks />
             </Protected>
           }
         />
+
+        
+        <Route
+          path="/task/new"
+          element={
+            <Protected>
+              <NewTask />
+            </Protected>
+          }
+        />
+
       </Routes>
       <Footer />
     </>

@@ -17,6 +17,7 @@ import { keyframes } from "@emotion/react";
 import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 
@@ -59,8 +60,15 @@ function Register() {
       }
       //  console.log(err)
     },
-    onSuccess: () => {
-      navigate("/login");
+     onSuccess: () => {
+      toast("Account Created successfully", {
+        style: {
+          backgroundColor: "greenyellow",
+          color: "black",
+          
+        },
+      });
+      navigate("/tasks");
     },
   });
 
@@ -132,7 +140,7 @@ function Register() {
             elevation={2}
             sx={{
               p: { xs: 3, md: 6 },
-              width: "100%",
+              width: "180%",
               maxWidth: 480,
               borderRadius: 3,
               bgcolor: "#2A3542",
