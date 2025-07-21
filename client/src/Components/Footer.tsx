@@ -95,7 +95,7 @@ const Footer = () => {
           align="center"
           sx={{ mt: 3, color: "#aaa" }}
         >
-          &copy; {new Date().getFullYear()} Tasky. All rights reserved.
+          &copy; {new Date().getFullYear()} Tasky. Developed by Kedevs. All rights reserved.
         </Typography>
       </Container>
     </Box>
