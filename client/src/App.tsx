@@ -9,6 +9,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Protected from "./Components/Protected";
 import CompletedTask from "./Pages/CompletedTask";
+import About from "./Pages/About";
 import { Toaster } from "react-hot-toast";
 import "./index.css";
 
@@ -39,15 +40,17 @@ function Layout() {
   const hideHeaderFooter = ["/","/login", "/register","/about"].includes(location.pathname);
 
   
-  const isAuthenticated = true; 
+  // const isAuthenticated = true; 
 
   return (
     <>
-      {!hideHeaderFooter && isAuthenticated && <Header />}
+      {!hideHeaderFooter  && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
+
         <Route
           path="/tasks"
           element={
