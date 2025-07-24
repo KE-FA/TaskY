@@ -43,7 +43,7 @@ function Register() {
     mutationKey: ["register-user"],
     mutationFn: async (newUser: User) => {
       const response = await axios.post(
-        "http://localhost:4000/api/auth/register",
+        "https://tasky-xgkg.onrender.com/api/auth/register",
         newUser
       );
       return response.data;
