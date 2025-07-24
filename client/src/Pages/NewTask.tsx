@@ -58,13 +58,14 @@ function NewTask() {
   return (
     <Container maxWidth="sm">
       <Paper
-        elevation={3}
+        elevation={4}
         sx={{
           p: { xs: 3, md: 5 },
           mt: 3,
           mb: 6,
           borderRadius: 3,
-          bgcolor: "#98A1BC",
+          bgcolor: "#1e1e2f",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
         }}
       >
         <Typography
@@ -73,8 +74,9 @@ function NewTask() {
           textAlign="center"
           sx={{
             fontWeight: "bold",
-            color: "#1a237e",
+            color: "#2196f3",
             mb: 3,
+            fontStyle: "italic",
           }}
         >
           Create a New Task
@@ -86,9 +88,9 @@ function NewTask() {
             sx={{
               mb: 2,
               bgcolor: "#AF1740",
-              color: "black",
-              fontWeight: 600,
-              fontSize: "16px",
+              color: "#fff",
+              fontWeight: 550,
+              fontSize: "14px",
             }}
           >
             {formError}
@@ -109,13 +111,16 @@ function NewTask() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             sx={{
-              borderRadius: 2,
-              
               "& .MuiInputBase-input": {
-                color: "#000",
+                color: "#f0f0f0",
               },
               "& .MuiInputLabel-root": {
-                color: "#333",
+                color: "#ccc",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": { borderColor: "#555" },
+                "&:hover fieldset": { borderColor: "#888" },
+                "&.Mui-focused fieldset": { borderColor: "#2196f3" },
               },
             }}
           />
@@ -129,12 +134,16 @@ function NewTask() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             sx={{
-              borderRadius: 2,
               "& .MuiInputBase-input": {
-                color: "#000",
+                color: "#f0f0f0",
               },
               "& .MuiInputLabel-root": {
-                color: "#333",
+                color: "#ccc",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": { borderColor: "#555" },
+                "&:hover fieldset": { borderColor: "#888" },
+                "&.Mui-focused fieldset": { borderColor: "#2196f3" },
               },
             }}
           />
@@ -146,15 +155,13 @@ function NewTask() {
             disabled={isPending}
             onClick={handleCreateTask}
             sx={{
-              bgcolor: "#1a237e",
+              bgcolor: "#2196f3",
+              ":hover": { bgcolor: "#1976d2" },
               textTransform: "none",
               fontWeight: "bold",
-              borderRadius: 2,
+              borderRadius: "30px",
               py: 1.2,
               color: "#fff",
-              "&:hover": {
-                bgcolor: "#0d174a",
-              },
             }}
           >
             {isPending ? "Creating..." : "Create Task"}

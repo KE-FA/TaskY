@@ -34,11 +34,10 @@ export default function AboutUs() {
           position: "relative",
           width: "100%",
           height: { xs: 300, md: 450 },
-          backgroundImage:
-            "url(/about.png)",
+          backgroundImage: "url(/about.png)",
           backgroundSize: "normal",
           backgroundPosition: "center",
-          backgroundRepeat:"no-repeat",
+          backgroundRepeat: "no-repeat",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -70,7 +69,6 @@ export default function AboutUs() {
         </Container>
       </Box>
 
-     
       <Container maxWidth="md" sx={{ py: 8 }}>
         <Typography
           variant="h4"
@@ -93,7 +91,6 @@ export default function AboutUs() {
           accomplish their goals without stress.
         </Typography>
 
-       
         <Typography
           variant="h4"
           fontWeight="bold"
@@ -105,7 +102,7 @@ export default function AboutUs() {
 
         <Grid container spacing={4} mt={2}>
           {teamMembers.map((member) => (
-            <Grid key={member.name} size={{xs:12, sm:6, md:4}} >
+            <Grid key={member.name} size={{ xs: 12, sm: 6, md: 4 }}>
               <Paper
                 elevation={3}
                 sx={{

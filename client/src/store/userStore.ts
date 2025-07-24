@@ -8,30 +8,27 @@ interface User {
   lastName: string;
   emailAddress: string;
   userName: string;
+  avatarUrl: string;
 }
 
 interface UserStore {
   user: User | null;
-  setUser: (user: User) => void;
+  setUser: (user: User | ((prev: User | null) => User)) => void;
   logoutUser: () => void;
 }
 
-const userStore: StateCreator<UserStore> = (set) => {
-  return {
-    user: null,
-    setUser: (user: User) => {
-      set(function () {
-        return { user };
-      });
-    },
-    logoutUser: () => {
-      set(function () {
-        return { user: null };
-      });
-    },
-  };
-};
+const userStore: StateCreator<UserStore> = (set) => ({
+  user: null,
+  setUser: (update) => {
+    set((state) => ({
+      user: typeof update === "function" ? update(state.user) : update,
+    }));
+  },
+  logoutUser: () => {
+    set(() => ({ user: null }));
+  },
+});
 
-const useUser = create(persist(userStore, { name: "Ramon" }));
+const useUser = create(persist(userStore, { name: "Auth" }));
 
 export default useUser;

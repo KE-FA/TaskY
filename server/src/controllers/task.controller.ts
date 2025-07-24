@@ -58,7 +58,7 @@ export const getTask = async (req: Request, res: Response) => {
           { taskid: taskid },
           { userid: id },
           { isDeleted: false },
-          { isCompleted: false },
+          // { isCompleted: false },
         ],
       },
     });
@@ -76,12 +76,13 @@ export const getTask = async (req: Request, res: Response) => {
 export const updateTask = async (req: Request, res: Response) => {
   try {
     const { taskid } = req.params;
-    const { title, description } = req.body;
+    const { title, description, isCompleted } = req.body;
     await client.task.update({
       where: { taskid: taskid },
       data: {
         title: title && title,
         description: description && description,
+        isCompleted: isCompleted !== undefined ? isCompleted : undefined,
       },
     });
     res.status(200).json({ message: "Task updated successfully" });

@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./Pages/Theme";
@@ -8,8 +13,11 @@ import Register from "./Pages/Register";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Protected from "./Components/Protected";
+import UpdateTask from "./Pages/UpdateTask";
 import CompletedTask from "./Pages/CompletedTask";
 import About from "./Pages/About";
+import Trash from "./Pages/Trash";
+import Profile from "./Pages/Profile";
 import { Toaster } from "react-hot-toast";
 import "./index.css";
 
@@ -36,20 +44,38 @@ export default App;
 function Layout() {
   const location = useLocation();
 
-  
-  const hideHeaderFooter = ["/","/login", "/register","/about"].includes(location.pathname);
+  const hideHeader = ["/", "/login", "/register", "/about"].includes(
+    location.pathname
+  );
 
-  
-  // const isAuthenticated = true; 
+  const isAuthenticated = true;
 
   return (
     <>
-      {!hideHeaderFooter  && <Header />}
+      {!hideHeader && isAuthenticated && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
+
+        <Route
+          path="/trash"
+          element={
+            <Protected>
+              <Trash />
+            </Protected>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <Protected>
+              <Profile />
+            </Protected>
+          }
+        />
 
         <Route
           path="/tasks"
@@ -60,7 +86,15 @@ function Layout() {
           }
         />
 
-        
+        <Route
+          path="/tasks/update/:taskid"
+          element={
+            <Protected>
+              <UpdateTask />
+            </Protected>
+          }
+        />
+
         <Route
           path="/task/new"
           element={
@@ -70,15 +104,14 @@ function Layout() {
           }
         />
 
-         <Route
+        <Route
           path="/completed"
           element={
             <Protected>
-              < CompletedTask/>
+              <CompletedTask />
             </Protected>
           }
         />
-
       </Routes>
       <Footer />
     </>

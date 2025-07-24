@@ -12,11 +12,11 @@ import AddTaskIcon from "@mui/icons-material/AddTask";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import useUser from "../store/userStore"; 
 
-const Header: React.FC = () => {
-  const { user } = useUser(); 
+import useUser from "../store/userStore";
+
+const Header = () => {
+  const { user } = useUser();
 
   return (
     <AppBar
@@ -88,25 +88,25 @@ const Header: React.FC = () => {
             Trash
           </Button>
 
-          
           <Typography
             variant="subtitle1"
             sx={{ color: "#fff", fontWeight: 500 }}
           >
-            Welcome, {user?.firstName || "Guest"}
+            Welcome, {user?.firstName}
           </Typography>
 
-          
           <IconButton href="/profile" sx={{ ml: 1 }}>
             <Avatar
+              src={user?.avatarUrl || undefined}
               sx={{
-                bgcolor: "#2196f3",
                 width: 36,
                 height: 36,
                 fontSize: 20,
               }}
             >
-              <AccountCircleIcon />
+              {!user?.avatarUrl &&
+                `${user?.firstName[0]?.toUpperCase() || ""}${user?.lastName[0]?.toUpperCase() || ""
+                }`}
             </Avatar>
           </IconButton>
         </Box>

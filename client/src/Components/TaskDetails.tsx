@@ -10,7 +10,7 @@ interface Task {
   title: string;
   description: string;
   isDeleted: boolean;
-  isCompleted:boolean;
+  isCompleted: boolean;
   createdAt: string;
   users: {
     id: string;
@@ -44,11 +44,9 @@ function AllTasks() {
     return <Loader message="Loading Please wait ..." />;
   }
 
-
-
-  
- const incompleteTasks = data?.filter(
-    (task:Task) => task.users.id === user?.id && !task.isDeleted && !task.isCompleted
+  const incompleteTasks = data?.filter(
+    (task: Task) =>
+      task.users.id === user?.id && !task.isDeleted && !task.isCompleted
   );
 
   return (

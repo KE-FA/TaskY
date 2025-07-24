@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   Box,
-
   Paper,
   Typography,
   TextField,
@@ -74,7 +73,7 @@ function Register() {
     mutate(newUser);
   }
 
-const animate = keyframes`
+  const animate = keyframes`
   0% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -89,7 +88,6 @@ const animate = keyframes`
   }
 `;
 
-
   return (
     <Box
       sx={{
@@ -103,7 +101,6 @@ const animate = keyframes`
         justifyContent: "center",
       }}
     >
-     
       <Box
         sx={{
           position: "absolute",
@@ -113,7 +110,6 @@ const animate = keyframes`
         }}
       />
 
-      
       <Box
         component="img"
         src="/logo2.png"
@@ -124,13 +120,12 @@ const animate = keyframes`
           left: "50px",
           width: "80px",
           height: "auto",
-          transform: "translate(-50%, -50%)", 
+          transform: "translate(-50%, -50%)",
 
           zIndex: 1,
           animation: `${animate} 3s ease-in-out infinite`,
         }}
       />
-
 
       <Paper
         elevation={6}
@@ -140,8 +135,8 @@ const animate = keyframes`
           p: { xs: 4, md: 6 },
           maxWidth: 500,
           width: "90%",
-          mt:5,
-          mb:5,
+          mt: 5,
+          mb: 5,
           borderRadius: 4,
           color: "#fff",
         }}

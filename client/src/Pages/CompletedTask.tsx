@@ -57,12 +57,11 @@ export default function CompletedTasksDetails() {
       queryClient.invalidateQueries({ queryKey: ["completed-tasks"] });
     },
     onError: () => {
-    toast("Failed to mark incomplete.", {
-      position: "top-center",
-      style: { backgroundColor: "red", color: "white" },
-    });
-  },
-    
+      toast("Failed to mark incomplete.", {
+        position: "top-center",
+        style: { backgroundColor: "red", color: "white" },
+      });
+    },
   });
 
   const deleteTask = useMutation({
@@ -77,7 +76,7 @@ export default function CompletedTasksDetails() {
       queryClient.invalidateQueries({ queryKey: ["get-tasks"] });
       queryClient.invalidateQueries({ queryKey: ["completed-tasks"] });
     },
-     onError: () => {
+    onError: () => {
       toast("Something went wrong", {
         position: "top-center",
         style: { backgroundColor: "red", color: "white" },
@@ -85,9 +84,9 @@ export default function CompletedTasksDetails() {
     },
   });
 
-  const handleUpdate = (id: string) => {
-    navigate(`/tasks/update/${id}`);
-  };
+  function handleUpdate(taskid: string) {
+    navigate(`/tasks/update/${taskid}`);
+  }
 
   if (isLoading)
     return (

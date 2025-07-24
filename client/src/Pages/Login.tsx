@@ -9,15 +9,14 @@ import {
   Link,
   InputAdornment,
   IconButton,
-  Alert
+  Alert,
 } from "@mui/material";
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import axiosInstance from "../api/axiosinstance";
 import useUser from "../store/userStore";
-
 
 interface LoginDetails {
   identifier: string;
@@ -60,23 +59,20 @@ function Login() {
     mutate({ identifier, password });
   }
 
-
   return (
     <Box
       sx={{
-        
-        backgroundImage:'url("/signup.jpg")',
-        backgroundSize:"cover",
-        backgroundRepeat:"no-repeat",
-        backgroundPosition:"center",
+        backgroundImage: 'url("/signup.jpg")',
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        
+
         p: 3.6,
       }}
     >
-      
       <Paper
         elevation={8}
         sx={{
@@ -100,7 +96,7 @@ function Login() {
         </Typography>
 
         <Stack spacing={3}>
-        {formError && <Alert severity="error">{formError}</Alert>}
+          {formError && <Alert severity="error">{formError}</Alert>}
 
           <TextField
             label="Username or Email"
@@ -171,4 +167,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;

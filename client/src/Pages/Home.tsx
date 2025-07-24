@@ -135,7 +135,6 @@ export default function Home() {
               sx={{
                 width: "100%",
                 borderRadius: 5,
-                // boxShadow: 3,
               }}
             />
           </Grid>

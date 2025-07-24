@@ -1,4 +1,3 @@
-
 import {
   Box,
   Container,
@@ -22,8 +21,7 @@ const Footer = () => {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4}>
-          
-          <Grid size={{xs:12, md:4}}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography variant="h6" fontWeight="bold" gutterBottom>
               TASKY
             </Typography>
@@ -33,7 +31,7 @@ const Footer = () => {
             </Typography>
           </Grid>
 
-          <Grid size={{xs:12, sm:6, md:4}}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
               Useful Links
             </Typography>
@@ -44,12 +42,11 @@ const Footer = () => {
               <Link href="/about" color="inherit" underline="hover">
                 About Us
               </Link>
-           
             </Stack>
           </Grid>
 
-          {/* Socials */}
-          <Grid size={{xs:12, sm:6, md:4}}>
+          {/* Social Links */}
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
               Follow Us
             </Typography>
@@ -95,7 +92,8 @@ const Footer = () => {
           align="center"
           sx={{ mt: 3, color: "#aaa" }}
         >
-          &copy; {new Date().getFullYear()} Tasky. Developed by Kedevs. All rights reserved.
+          &copy; {new Date().getFullYear()} Tasky. Developed by Kedevs. All
+          rights reserved.
         </Typography>
       </Container>
     </Box>
