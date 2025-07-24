@@ -6,6 +6,8 @@ import {
   Button,
   Paper,
   Grid,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
@@ -13,6 +15,7 @@ import axiosInstance from "../api/axiosinstance";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useUser from "../store/userStore";
+import { Visibility, VisibilityOff, Lock } from "@mui/icons-material";
 
 interface UserDetails {
   firstName: string;
@@ -37,6 +40,7 @@ function Profile() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(
@@ -416,7 +420,7 @@ function Profile() {
                 <TextField
                   label="Current Password"
                   variant="outlined"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   fullWidth
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
@@ -429,11 +433,23 @@ function Profile() {
                       "&.Mui-focused fieldset": { borderColor: "#2196f3" },
                     },
                   }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={() => setShowPassword(!showPassword)}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
                 <TextField
                   label="New Password"
                   variant="outlined"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   fullWidth
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
@@ -445,6 +461,18 @@ function Profile() {
                       "&:hover fieldset": { borderColor: "#888" },
                       "&.Mui-focused fieldset": { borderColor: "#2196f3" },
                     },
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={() => setShowPassword(!showPassword)}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
                   }}
                 />
                 {passwordError && (
