@@ -10,7 +10,7 @@ const app: Express = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://task-y-seven.vercel.app",
     credentials: true,
     
     // methods:["POST", "GET", "PUT", "PATCH", "DELETE"]
