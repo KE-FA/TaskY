@@ -15,7 +15,7 @@ import axiosInstance from "../api/axiosinstance";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useUser from "../store/userStore";
-import { Visibility, VisibilityOff, Lock } from "@mui/icons-material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface UserDetails {
   firstName: string;
