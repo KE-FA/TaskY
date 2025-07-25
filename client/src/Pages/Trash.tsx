@@ -12,6 +12,7 @@ import {
   CardActions,
   Button,
   CircularProgress,
+  Alert,
 } from "@mui/material";
 import useUser from "../store/userStore";
 import toast from "react-hot-toast";
@@ -82,7 +83,22 @@ export default function restoreTask() {
   );
 
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
+    <Container maxWidth="lg" sx={{ py: 3 }}>
+      <Alert
+        severity="error"
+        sx={{
+          mb: 2,
+          bgcolor: "#AF1740",
+          color: "#fff",
+          fontWeight: 550,
+          fontSize: "14px",
+          justifyContent:"center",
+          maxWidth:"400px",
+          ml:"32%"
+        }}
+      >
+        Items in trash will be deleted after 30 days
+      </Alert>
       <Grid container spacing={3}>
         {deletedTasks && deletedTasks.length > 0 ? (
           deletedTasks.map((task) => {
@@ -173,7 +189,12 @@ export default function restoreTask() {
             );
           })
         ) : (
-          <Typography variant="body1" textAlign="center">
+          <Typography
+            variant="body1"
+            justifyContent="center"
+            p="2rem 1rem"
+            fontWeight="600"
+          >
             No deleted tasks found.
           </Typography>
         )}

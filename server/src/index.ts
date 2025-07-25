@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: "https://task-y-seven.vercel.app",
     credentials: true,
-    
+
     // methods:["POST", "GET", "PUT", "PATCH", "DELETE"]
   })
 );

@@ -66,7 +66,7 @@ function AllTasks() {
             />
           ))
         ) : (
-          <Typography variant="body1">You don’t have any tasks yet.</Typography>
+          <Typography variant="body1" textAlign="center" p="2rem 1rem" fontWeight="600" fontSize="18px">You don’t have any tasks yet.</Typography>
         )}
       </Grid>
     </Box>

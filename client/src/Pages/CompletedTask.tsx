@@ -228,7 +228,7 @@ export default function CompletedTasksDetails() {
             );
           })
         ) : (
-          <Typography variant="body1" textAlign="center">
+          <Typography variant="body1"  justifyContent="center" p="2rem 1rem" fontWeight="600" fontSize="18px">
             No completed tasks found.
           </Typography>
         )}
