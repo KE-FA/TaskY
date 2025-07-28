@@ -12,9 +12,9 @@ Tasky is a sleek and responsive task management web application built with React
 
 ## 🖼️ Screenshot
 
-| Home | 
+| Home Page |
 |----------|
-| ![Home](./public/Homepage.JPG/) | 
+| ![Home](./client//public/Homepage.JPG)
 ## 🛠 Tech Stack
 
 - **Frontend**: React, TypeScript, Material UI, React Router
