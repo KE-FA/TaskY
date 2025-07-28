@@ -28,7 +28,7 @@ Tasky is a sleek and responsive task management web application built with React
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/tasky.git
+   git clone https://github.com/KE-FA/TaskY.git
    cd TaskY
 
 2. **Install dependencies**
